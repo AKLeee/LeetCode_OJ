@@ -6,14 +6,9 @@ class Solution:
     # @param {integer[]} nums
     # @return {integer}
     def singleNumber(self, nums):
-    	#Using dictionary to flag each number
-    	hashTable = {}
+    	#Using bit operator, knowledge short for 'Bit Manipulation'
+    	result = 0
     	for num in nums:
-    		if not hashTable.get(num):
-    			hashTable.update({num: True})
-    		else:
-    			hashTable.update({num: False})
+    		result = result^num
 
-    	for key in hashTable:
-    		if hashTable.get(key) is True:
-    			return key
+    	return result
