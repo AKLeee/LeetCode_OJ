@@ -4,6 +4,26 @@
 #However, you may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).
 
 class Solution:
-    # @param {integer[]} prices
-    # @return {integer}
-    def maxProfit(self, prices):
+	# @param {integer[]} prices
+	# @return {integer}
+	def maxProfit(self, prices):
+		if len(prices) < 2:
+			return 0
+		
+		profit = 0
+		lowPrice = prices[0]
+		highPrice = prices[0]
+		for idx, price in enumerate(prices):
+			if idx+1 >= len(prices):
+				break
+			nextPrice = prices[idx+1]
+			if price > nextPrice:
+				lowPrice = nextPrice
+				highPrice = nextPrice
+			else:
+				lowPrice = price
+				highPrice = nextPrice
+				profit = profit + (highPrice - lowPrice)
+
+		return profit
+
