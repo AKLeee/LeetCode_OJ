@@ -5,3 +5,10 @@ class Solution:
     # @param {integer[]} nums
     # @return {boolean}
     def containsDuplicate(self, nums):
+    	dictionary = {}
+    	for num in nums:
+    		if num in dictionary:
+    			return True
+    		else:
+    			dictionary.update({num:None})
+    	return False
