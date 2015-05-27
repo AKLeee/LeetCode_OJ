@@ -13,3 +13,15 @@ class Solution:
     # @param {TreeNode} root
     # @return {integer[]}
     def preorderTraversal(self, root):
+    	result = []
+    	self.preTra(root,result)
+
+    	return result
+
+    def preTra(self, node, intArray):
+    	if not node:
+    		return None
+    	val = node.val
+    	intArray.append(val)
+    	self.preTra(node.left, intArray)
+    	self.preTra(node.right, intArray)
