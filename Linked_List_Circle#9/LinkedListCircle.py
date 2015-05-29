@@ -13,3 +13,19 @@ class Solution:
     # @param head, a ListNode
     # @return a boolean
     def hasCycle(self, head):
+    	quickHead = None
+    	slowHead = None
+    	if not head:
+    		return False
+    	if head.next is not None:
+    		quickHead = head.next
+    		slowHead = head.next
+    	else:
+    		return False
+
+    	while quickHead and quickHead.next:
+    		quickHead = quickHead.next.next
+    		slowHead = slowHead.next
+    		if quickHead == slowHead:
+    			return True
+    	return False
