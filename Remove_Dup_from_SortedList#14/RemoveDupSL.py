@@ -10,3 +10,22 @@ class Solution:
     # @param {ListNode} head
     # @return {ListNode}
     def deleteDuplicates(self, head):
+    	result = head
+    	if not head:
+    		return head
+    	while head.next and head:
+    		currentVal = head.val
+    		nextVal = head.next.val
+
+    		if currentVal == nextVal:
+    			if(head.next.next == None):
+    				head.next = None
+    			else:
+    				cacheNode = head.next.next
+    				head.next = cacheNode
+    				#the duplicate may bigger than 2
+    				continue
+    		head = head.next
+    		if not head:
+    			break
+    	return result
