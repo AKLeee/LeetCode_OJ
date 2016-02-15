@@ -12,3 +12,16 @@ class Solution(object):
         if root.val <= largerThan or root.val >= lessThan:
             return False
         return self.isValidBST(root.left, root.val, largerThan) and self.isValidBST(root.right, lessThan, root.val)
+
+#Check during inorder traversal
+# class Solution(object):
+# 	def isValidBST(self, root):
+# 		curMax = float('-inf')
+# 		return self.validBST(root, curMax)
+
+# 	def validBST(self, root, curMax):
+# 		if not root: return True
+# 		if not self.validBST(root.left, curMax): return False
+# 		if root.val <= curMax: return False
+# 		curMax = root.val
+# 		return self.validBST(root.right, curMax)
